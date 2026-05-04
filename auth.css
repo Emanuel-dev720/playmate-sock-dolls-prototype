@@ -1,0 +1,46 @@
+/* -----------------------------------------
+   AUTH PAGE LAYOUT (LOGIN + SIGN UP)
+----------------------------------------- */
+
+.auth-page {
+  background: var(--mint-light);
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+}
+
+.auth-panel {
+  background: white;
+  padding: 30px;
+  width: 360px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.auth-panel h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.auth-panel label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.auth-panel input {
+  width: 94%;
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  margin-top: 5px;
+}
+
+.auth-panel button {
+  width: 100%;
+  margin-top: 10px;
+}

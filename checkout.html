@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout – Your Playmate Sock Dolls</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="checkout.css">
+</head>
+
+<body class="checkout-page">
+
+<header>
+  <div class="header-left">
+    <img src="images/logo.jpg" class="site-logo" alt="Your Playmate Sock Dolls Logo">
+    <h1>
+      <a href="index.html" class="site-title-link">Your Playmate Sock Dolls</a>
+    </h1>
+  </div>
+
+  <nav id="nav-links"></nav>
+</header>
+
+<main class="checkout-layout">
+
+  <div class="checkout-left">
+    <h2>Your Cart</h2>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-summary">
+      <h3>Order Summary</h3>
+      <p>Subtotal: $<span id="cart-subtotal">0.00</span></p>
+      <p>Sales Tax (5%): $<span id="cart-tax">0.00</span></p>
+      <p>Shipping (UPS 2-Day): $<span id="cart-shipping">0.00</span></p>
+      <p>Expedited Surcharge: $<span id="cart-expedited">0.00</span></p>
+      <p class="cart-total">Total: $<span id="cart-total">0.00</span></p>
+    </div>
+
+    <div class="secure-checkout-box">
+      <strong>Secure Checkout</strong>
+      <p>Your information is protected using industry‑standard security practices.</p>
+
+      <p style="margin-top: 8px;">
+        All payment details are encrypted using SSL protection, and our system is monitored with 
+        automated security scanning and firewall safeguards to keep your data safe. We follow 
+        best‑practice security standards to ensure a reliable and trustworthy checkout experience.
+      </p>
+    </div>
+  </div>
+
+  <div class="checkout-right">
+    <h2>Checkout Details</h2>
+
+    <form id="checkout-form" class="form-card">
+
+      <h3>Customer Profile</h3>
+      <label>Full Name<input id="cust-name" type="text" required></label>
+      <label>Email<input id="cust-email" type="email" required></label>
+
+      <h3>Billing Information</h3>
+      <label>Billing Address<input id="bill-address" type="text" required></label>
+      <label>City<input id="bill-city" type="text" required></label>
+      <label>State<input id="bill-state" type="text" required></label>
+      <label>ZIP Code<input id="bill-zip" type="text" required></label>
+
+      <label class="checkbox-option same-billing-row">
+        <input type="checkbox" id="same-as-billing">
+        <span>Shipping address is the same as billing address</span>
+      </label>
+
+      <div id="shipping-section">
+        <h3>Shipping Information</h3>
+        <label>Shipping Address<input id="ship-address" type="text" required></label>
+        <label>City<input id="ship-city" type="text" required></label>
+        <label>State<input id="ship-state" type="text" required></label>
+        <label>ZIP Code<input id="ship-zip" type="text" required></label>
+      </div>
+
+      <h3>Shipping Method</h3>
+      <label class="radio-option">
+        <input type="radio" name="shipping-method" value="standard" checked>
+        Standard UPS 2‑Day
+      </label>
+
+      <label class="radio-option">
+        <input type="radio" name="shipping-method" value="expedited">
+        Expedited Shipping (+$15.00)
+      </label>
+
+      <h3>Payment Information</h3>
+      <label>Name on Card<input id="card-name" type="text" required></label>
+      <label>Card Number<input id="card-number" type="text" maxlength="16" required></label>
+
+      <div class="card-row">
+        <label>Expiration (MM/YY)<input id="card-exp" type="text" maxlength="5" required></label>
+        <label>CVV<input id="card-cvv" type="text" maxlength="4" required></label>
+      </div>
+
+      <button type="button" id="go-review-order">Review Order</button>
+    </form>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-support">
+    <p><strong>Need Help?</strong></p>
+    <p>
+      <a href="contact.html#sales-support" class="footer-chat-link">
+        Chat with a Sales Support Specialist
+      </a>
+    </p>
+    <p><strong>Phone:</strong> 1‑800‑555‑0199</p>
+  </div>
+
+  <p style="margin-top: 10px; font-size: 15px; color: #444;">
+    Bringing comfort to children, one handmade doll at a time.
+  </p>
+
+  <p>&copy; 2026 Your Playmate Sock Dolls, LLC. All rights reserved.</p>
+</footer>
+
+<!-- REQUIRED SCRIPTS -->
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/init.js"></script>
+
+</body>
+</html>

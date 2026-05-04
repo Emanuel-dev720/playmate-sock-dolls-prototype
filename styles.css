@@ -1,0 +1,256 @@
+/* -----------------------------------------
+   GLOBAL THEME
+----------------------------------------- */
+
+:root {
+  --mint: #c9f2e7;
+  --mint-light: #e8faf6;
+  --blue-soft: #dceeff;
+  --blue-accent: #7ab8ff;
+  --text-dark: #2d2d2d;
+  --text-light: #555;
+  --white: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --radius: 12px;
+  --transition: 0.25s ease;
+}
+
+/* Make footer stick to bottom and prevent background leaks */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--mint-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* pushes footer to bottom */
+}
+
+/* -----------------------------------------
+   HEADER
+----------------------------------------- */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--blue-soft);
+  padding: 20px;
+  box-shadow: 0 2px 6px var(--shadow);
+
+  position: sticky;   /* keeps nav bar stuck to top */
+  top: 0;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+nav {
+  display: flex;
+  gap: 18px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+nav a:hover {
+  background: var(--mint);
+}
+
+nav a.active {
+  background: var(--blue-accent);
+  color: white;
+}
+
+/* -----------------------------------------
+   WELCOME TEXT ALIGNMENT FIX
+----------------------------------------- */
+
+nav .welcome-text {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  height: 100%;
+  font-weight: 600;
+}
+
+/* -----------------------------------------
+   BUTTONS
+----------------------------------------- */
+
+button {
+  padding: 10px 16px;
+  background: var(--blue-accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 15px;
+  transition: var(--transition);
+}
+
+button:hover {
+  background: #5ea6f5;
+  transform: translateY(-2px);
+}
+
+/* -----------------------------------------
+   FOOTER
+----------------------------------------- */
+
+footer {
+  background: #e0e0e0;
+  padding: 20px;
+  text-align: center;
+  margin-top: auto; /* ensures footer stays at bottom */
+}
+
+/* -----------------------------------------
+   PRODUCT SECTION CENTERING FIX
+----------------------------------------- */
+
+#product-section {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* -----------------------------------------
+   PRODUCT FILTER BAR (MODERNIZED)
+----------------------------------------- */
+
+.product-filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 25px 0 35px;
+}
+
+/* Modern search bar */
+#product-search {
+  padding: 12px 16px;
+  width: 260px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.2s ease;
+  background: white;
+}
+
+#product-search:focus {
+  border-color: var(--blue-accent);
+  box-shadow: 0 0 6px rgba(122, 184, 255, 0.4);
+}
+
+/* Modern dropdown */
+#product-category-filter {
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 16px;
+  background: white;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+#product-category-filter:focus {
+  border-color: var(--blue-accent);
+  box-shadow: 0 0 6px rgba(122, 184, 255, 0.4);
+}
+
+/* -----------------------------------------
+   PRODUCT GRID (LAYOUT ONLY)
+----------------------------------------- */
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px auto 0;
+  max-width: 1000px;
+}
+
+/* Only width + spacing here */
+.product-card {
+  width: 260px;
+  margin-bottom: 35px;
+}
+
+.footer-support {
+  margin-bottom: 15px;
+}
+
+.footer-support p {
+  margin: 4px 0;
+}
+
+.footer-chat-link {
+  color: var(--blue-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-chat-link:hover {
+  text-decoration: underline;
+}
+
+.site-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-title-link:hover {
+  text-decoration: underline;
+}
+
+.cart-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #4caf50;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.cart-popup.show {
+  opacity: 1;
+}

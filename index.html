@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Playmate Sock Dolls – Home</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="home.css">
+</head>
+<body class="home-page">
+
+<header>
+  <div class="header-left">
+    <img src="images/logo.jpg" class="site-logo" alt="Your Playmate Sock Dolls Logo">
+    <h1>
+      <a href="index.html" class="site-title-link">Your Playmate Sock Dolls</a>
+    </h1>
+  </div>
+
+  <nav id="nav-links"></nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Handmade Sock Dolls Bringing Comfort to Children</h2>
+      <p>Soft, safe, and crafted with love — trusted by hospitals and care centers worldwide.</p>
+      <button onclick="document.getElementById('product-section').scrollIntoView({behavior: 'smooth'})">
+        Shop Dolls
+      </button>
+    </div>
+
+    <img src="images/banner.jpg" class="hero-image" alt="Children's comfort dolls banner">
+  </section>
+
+  <section class="mission-block" style="max-width: 900px; margin: 0 auto 40px; text-align: center;">
+    <p style="font-size: 18px; color: #444; line-height: 1.6;">
+      At Your Playmate Sock Dolls, our mission is simple: 
+      <strong>to bring warmth, comfort, and emotional support to seriously ill children</strong> 
+      through handcrafted dolls made with care. Each doll is created to brighten a child’s day 
+      and offer a moment of joy during challenging times.
+    </p>
+  </section>
+
+  <section id="product-section">
+    <h2>Our Featured Dolls</h2>
+    <p class="section-subtitle">Browse our handcrafted collection designed to bring smiles and comfort.</p>
+
+    <div class="product-filters" aria-label="Product search and filters">
+      <input
+        type="search"
+        id="product-search"
+        placeholder="Search dolls by name or description"
+        aria-label="Search dolls"
+      >
+
+      <select id="product-category-filter" aria-label="Filter dolls by category">
+        <option value="all">All Categories</option>
+        <option value="animal">Animal Friends</option>
+        <option value="comfort">Comfort Dolls</option>
+        <option value="holiday">Holiday Dolls</option>
+      </select>
+    </div>
+
+    <div id="product-list" class="product-grid"></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-support">
+    <p><strong>Need Help?</strong></p>
+    <p>
+      <a href="contact.html#sales-support" class="footer-chat-link">
+        Chat with a Sales Support Specialist
+      </a>
+    </p>
+    <p><strong>Phone:</strong> 1‑800‑555‑0199</p>
+  </div>
+
+  <p style="margin-top: 10px; font-size: 15px; color: #444;">
+    Bringing comfort to children, one handmade doll at a time.
+  </p>
+
+  <p>&copy; 2026 Your Playmate Sock Dolls, LLC. All rights reserved.</p>
+</footer>
+
+<!-- REQUIRED SCRIPTS -->
+<script src="js/products.js"></script>
+<script src="js/product-render.js"></script>
+<script src="js/product-filters.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/init.js"></script>
+
+<div id="cart-popup" class="cart-popup">Item added to cart!</div>
+
+</body>
+</html>

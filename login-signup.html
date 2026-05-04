@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login / Sign Up – Your Playmate Sock Dolls</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body class="auth-page">
+
+<header>
+  <div class="header-left">
+    <img src="images/logo.jpg" class="site-logo" alt="Your Playmate Sock Dolls Logo">
+    <h1>
+      <a href="index.html" class="site-title-link">Your Playmate Sock Dolls</a>
+    </h1>
+  </div>
+
+  <nav id="nav-links"></nav>
+</header>
+
+<main class="auth-container">
+
+  <div class="auth-panel">
+    <h2>Login</h2>
+
+    <label>Email
+      <input id="login-email" type="email" required>
+    </label>
+
+    <button id="login-btn">Log In</button>
+  </div>
+
+  <div class="auth-panel">
+    <h2>Sign Up</h2>
+
+    <p style="margin-bottom: 15px; color: #444;">
+      Creating an account lets you save your profile, speed up checkout, and keep your 
+      shipping information ready for future orders. It also helps our support team assist 
+      you more quickly if you ever need help with an order.
+    </p>
+
+    <label>Full Name
+      <input id="signup-name" type="text" required>
+    </label>
+
+    <label>Email
+      <input id="signup-email" type="email" required>
+    </label>
+
+    <label>Address
+      <input id="signup-address" type="text" required>
+    </label>
+
+    <label>City
+      <input id="signup-city" type="text" required>
+    </label>
+
+    <label>State
+      <input id="signup-state" type="text" required>
+    </label>
+
+    <label>ZIP Code
+      <input id="signup-zip" type="text" required>
+    </label>
+
+    <button id="signup-btn">Create Account</button>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-support">
+    <p><strong>Need Help?</strong></p>
+    <p>
+      <a href="contact.html#sales-support" class="footer-chat-link">
+        Chat with a Sales Support Specialist
+      </a>
+    </p>
+    <p><strong>Phone:</strong> 1‑800‑555‑0199</p>
+  </div>
+
+  <p style="margin-top: 10px; font-size: 15px; color: #444;">
+    Bringing comfort to children, one handmade doll at a time.
+  </p>
+
+  <p>&copy; 2026 Your Playmate Sock Dolls, LLC. All rights reserved.</p>
+</footer>
+
+<!-- REQUIRED SCRIPTS -->
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/init.js"></script>
+
+</body>
+</html>

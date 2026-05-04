@@ -1,0 +1,90 @@
+/* ============================================================
+   ORDER CONFIRMATION PAGE — THEMED TO MATCH SITE
+============================================================ */
+
+/* Match global background and remove top padding so it doesn't
+   push content below the header */
+.order-confirmation-page {
+  background: var(--mint-light);
+  font-family: "Segoe UI", Arial, sans-serif;
+  padding: 0; /* prevent background from appearing above nav */
+}
+
+/* Centered white card, matching hero + product card styling */
+.confirmation-container {
+  max-width: 750px;
+  margin: 0 auto;
+  background: var(--white);
+  padding: 45px 50px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px var(--shadow);
+
+  /* spacing relative to header/footer */
+  margin-top: 50px;   /* clean space below nav bar */
+  margin-bottom: 80px; /* clean space above footer */
+}
+
+/* Title styling consistent with your brand */
+.confirmation-container h1 {
+  text-align: center;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* General text */
+.confirmation-container p {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  color: var(--text-light);
+}
+
+/* Order Summary Box — styled like your product cards */
+.order-summary-box {
+  margin-top: 35px;
+  padding: 25px;
+  background: var(--blue-soft);
+  border-radius: var(--radius);
+  border: 1px solid #c9ddf5;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.order-summary-box h2 {
+  margin-bottom: 18px;
+  color: var(--text-dark);
+  text-align: left;
+  font-size: 1.4rem;
+}
+
+/* Order Item Layout */
+.order-item {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 22px;
+  align-items: center;
+}
+
+.order-item img {
+  width: 90px;
+  height: 90px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.order-item-details p {
+  margin: 4px 0;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+/* Total Line */
+.total-line {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-top: 25px;
+  text-align: right;
+  color: var(--text-dark);
+}

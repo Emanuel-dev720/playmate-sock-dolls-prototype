@@ -1,0 +1,60 @@
+/* HOMEPAGE HERO */
+
+.home-page .hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px var(--shadow);
+  margin-bottom: 40px;
+}
+
+.home-page .hero-text {
+  max-width: 50%;
+}
+
+.home-page .hero-image {
+  width: 520px;
+  height: auto;
+  margin-left: -20px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+/* -----------------------------------------
+   PRODUCT GRID — EXACTLY 4 PER ROW
+----------------------------------------- */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns always */
+  gap: 30px; /* spacing between cards */
+  max-width: 1100px;
+  margin: 30px auto 0;
+}
+
+/* -----------------------------------------
+   PRODUCT CARD VISUALS
+----------------------------------------- */
+
+.product-card {
+  background: white;
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px var(--shadow);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+}

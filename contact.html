@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact & Support – Your Playmate Sock Dolls</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="contact.css">
+</head>
+
+<body class="contact-page">
+
+<header>
+  <div class="header-left">
+    <img src="images/logo.jpg" alt="Logo" class="site-logo">
+    <h1>
+      <a href="index.html" class="site-title-link">Your Playmate Sock Dolls</a>
+    </h1>
+  </div>
+
+  <nav id="nav-links"></nav>
+</header>
+
+<main>
+
+  <div class="info-card">
+    <h2>Contact Us</h2>
+    <p>We’re here to help with any questions about our dolls, your order, or general support.</p>
+
+    <p style="margin-top: 10px;">
+      Our support team is trained to assist with order questions, shipping details, product information, 
+      and account issues. When helping customers, staff verify order accuracy, confirm billing and shipping 
+      information, and review payment status to ensure everything matches what the customer expects. 
+      If something looks incorrect or needs clarification, our team will guide you through the next steps 
+      or escalate the issue to technical support when necessary. We aim to provide clear, friendly, and 
+      accessible assistance every time.
+    </p>
+
+    <h3>Customer Support</h3>
+    <p><strong>Phone:</strong> 1‑800‑555‑0199</p>
+    <p><strong>Email:</strong> support@playmatesockdolls.com</p>
+
+    <h3>Business Inquiries</h3>
+    <p><strong>Email:</strong> partnerships@playmatesockdolls.com</p>
+
+    <h3>Hours</h3>
+    <p>Monday–Friday: 9 AM – 5 PM CST</p>
+    <p>Saturday: 10 AM – 2 PM CST</p>
+
+    <h3>Mailing Address</h3>
+    <p>
+      Your Playmate Sock Dolls, LLC<br>
+      123 Comfort Lane<br>
+      Madison, WI 53703
+    </p>
+  </div>
+
+  <div class="info-card">
+    <h2>General Contact Form</h2>
+    <p>Have a question or comment? Send us a message below.</p>
+
+    <form id="general-contact-form" class="form-card">
+      <label>Your Name
+        <input type="text" id="gen-name" required>
+      </label>
+
+      <label>Your Email
+        <input type="email" id="gen-email" required>
+      </label>
+
+      <label>Your Message
+        <textarea id="gen-message" rows="4" required></textarea>
+      </label>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <div class="info-card" id="sales-support">
+    <h2>Sales Support Ticket</h2>
+    <p>Need help with an order, shipping, or product questions? Submit a support ticket below.</p>
+
+    <form id="support-ticket-form" class="form-card">
+      <label>Your Name
+        <input type="text" id="support-name" required>
+      </label>
+
+      <label>Your Email
+        <input type="email" id="support-email" required>
+      </label>
+
+      <label>Order Number (optional)
+        <input type="text" id="support-order">
+      </label>
+
+      <label>Issue Description
+        <textarea id="support-message" rows="4" required></textarea>
+      </label>
+
+      <button type="submit">Submit Ticket</button>
+    </form>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-support">
+    <p><strong>Need Help?</strong></p>
+    <p>
+      <a href="contact.html#sales-support" class="footer-chat-link">
+        Chat with a Sales Support Specialist
+      </a>
+    </p>
+    <p><strong>Phone:</strong> 1‑800‑555‑0199</p>
+  </div>
+
+  <p style="margin-top: 10px; font-size: 15px; color: #444;">
+    Bringing comfort to children, one handmade doll at a time.
+  </p>
+
+  <p>&copy; 2026 Your Playmate Sock Dolls, LLC. All rights reserved.</p>
+</footer>
+
+<!-- REQUIRED SCRIPTS -->
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/init.js"></script>
+
+<script>
+document.getElementById("general-contact-form")?.addEventListener("submit", function(e) {
+  e.preventDefault();
+  alert("Thank you! Your message has been sent.");
+  this.reset();
+});
+
+document.getElementById("support-ticket-form")?.addEventListener("submit", function(e) {
+  e.preventDefault();
+  alert("Your support ticket has been submitted. A representative will contact you shortly.");
+  this.reset();
+});
+</script>
+
+</body>
+</html>

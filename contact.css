@@ -1,0 +1,90 @@
+/* ============================================================
+   CONTACT PAGE — SIMPLE STACKED LAYOUT
+============================================================ */
+
+.contact-page main {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   INFO CARD (shared styling)
+============================================================ */
+
+.contact-page .info-card {
+  background: white;
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px var(--shadow);
+  width: 100%;
+  margin: 40px auto; /* consistent spacing between each box */
+}
+
+/* ============================================================
+   FORM CARDS (General Contact + Sales Support)
+   — FIXED so they no longer overflow visually
+============================================================ */
+
+.contact-page .form-card {
+  background: transparent;   /* remove inner white box */
+  box-shadow: none;          /* remove inner shadow */
+  padding: 0;                /* remove inner padding */
+  width: 100%;
+  margin-top: 20px;          /* spacing inside the info-card */
+}
+
+.contact-page .form-card label {
+  display: block;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+
+.contact-page .form-card input,
+.contact-page .form-card textarea {
+  width: 97%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  resize: vertical;
+}
+
+.contact-page .form-card button {
+  width: 100%;
+  padding: 12px;
+  background: var(--blue-accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.contact-page .form-card button:hover {
+  background: #5ea6f5;
+}
+
+/* ============================================================
+   HEADINGS
+============================================================ */
+
+.contact-page h2 {
+  margin-bottom: 10px;
+}
+
+.contact-page h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+/* ============================================================
+   RESPONSIVE (still clean on mobile)
+============================================================ */
+
+@media (max-width: 600px) {
+  .contact-page main {
+    padding: 10px;
+  }
+}

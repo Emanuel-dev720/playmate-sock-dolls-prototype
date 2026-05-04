@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Review Order – Your Playmate Sock Dolls</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="checkout.css">
+</head>
+
+<body class="checkout-page review-page">
+
+<header>
+  <div class="header-left">
+    <img src="images/logo.jpg" class="site-logo" alt="Logo">
+    <h1>
+      <a href="index.html" class="site-title-link">Your Playmate Sock Dolls</a>
+    </h1>
+  </div>
+
+  <nav id="nav-links"></nav>
+</header>
+
+<main class="checkout-layout">
+
+  <div class="checkout-left">
+    <h2>Review Your Order</h2>
+
+    <div id="review-items" class="cart-items-box"></div>
+
+    <div class="cart-summary">
+      <h3 id="review-subtotal-label">Subtotal:</h3>
+      <p>Tax: $<span id="review-tax"></span></p>
+      <p>Shipping: $<span id="review-shipping"></span></p>
+      <p>Expedited: $<span id="review-expedited"></span></p>
+      <p class="cart-total">Total: $<span id="review-total"></span></p>
+    </div>
+  </div>
+
+  <div class="checkout-right">
+    <h2>Next Steps</h2>
+
+    <div class="form-card">
+      <p>Please confirm that everything looks correct before placing your order.</p>
+
+      <p style="margin-top: 10px;">
+        Our team carefully reviews each order to ensure accuracy, secure payment processing, 
+        and reliable shipping. If anything looks incorrect, you can go back and make changes 
+        before finalizing your purchase.
+      </p>
+
+      <button id="review-back-btn">Go Back</button>
+      <button id="review-confirm-btn">Confirm Order</button>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-support">
+    <p><strong>Need Help?</strong></p>
+    <p>
+      <a href="contact.html#sales-support" class="footer-chat-link">
+        Chat with a Sales Support Specialist
+      </a>
+    </p>
+    <p><strong>Phone:</strong> 1‑800‑555‑0199</p>
+  </div>
+
+  <p style="margin-top: 10px; font-size: 15px; color: #444;">
+    Bringing comfort to children, one handmade doll at a time.
+  </p>
+
+  <p>&copy; 2026 Your Playmate Sock Dolls, LLC. All rights reserved.</p>
+</footer>
+
+<!-- REQUIRED SCRIPTS -->
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/review-order.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/init.js"></script>
+
+</body>
+</html>
