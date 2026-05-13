@@ -48,37 +48,6 @@ function setupPaymentValidation() {
 }
 
 /* ============================================================
-   CHANGE QUANTITY
-============================================================ */
-
-function changeQty(id, amount) {
-  id = id.toString();
-
-  const item = cart.find(i => i.id == id);
-  if (!item) return;
-
-  item.qty += amount;
-
-  if (item.qty <= 0) {
-    cart = cart.filter(i => i.id != id);
-  }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
-}
-
-/* ============================================================
-   REMOVE FROM CART (FIXED)
-============================================================ */
-
-function removeFromCart(id) {
-  id = id.toString();
-  cart = cart.filter(item => item.id != id);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
-}
-
-/* ============================================================
    RENDER CART (CHECKOUT PAGE)
 ============================================================ */
 
@@ -95,7 +64,7 @@ function renderCart() {
   let subtotal = 0;
 
   cart.forEach(item => {
-    const product = products.find(p => p.id == item.id);
+    const product = products.find(p => p.id === item.id);
     if (!product) return;
 
     subtotal += product.price * item.qty;
@@ -111,10 +80,10 @@ function renderCart() {
         <p class="cart-item-extended">Line Total: $${(product.price * item.qty).toFixed(2)}</p>
 
         <div class="cart-item-qty">
-          <button class="qty-btn" onclick="changeQty('${product.id}', -1)">−</button>
+          <button class="qty-btn" onclick="changeQty(${product.id}, -1)">−</button>
           <span>${item.qty}</span>
-          <button class="qty-btn" onclick="changeQty('${product.id}', 1)">+</button>
-          <button class="remove-btn" onclick="removeFromCart('${product.id}')">Remove</button>
+          <button class="qty-btn" onclick="changeQty(${product.id}, 1)">+</button>
+          <button class="remove-btn" onclick="removeFromCart(${product.id})">Remove</button>
         </div>
       </div>
     `;
@@ -134,6 +103,7 @@ function renderCart() {
 
   const itemCount = cart.reduce((sum, item) => sum + item.qty, 0);
 
+  // Persist shipping info for review page
   localStorage.setItem("lastZip", zip);
   localStorage.setItem("lastShippingMethod", method || "standard");
 
@@ -153,6 +123,93 @@ function renderCart() {
   if (shipEl) shipEl.textContent = shipping.toFixed(2);
   if (expEl) expEl.textContent = expedited.toFixed(2);
   if (totalEl) totalEl.textContent = total.toFixed(2);
+}
+
+/* ============================================================
+   REVIEW ORDER PAGE
+============================================================ */
+
+function loadReviewOrderPage() {
+  const reviewContainer = document.getElementById("review-items");
+  if (!reviewContainer) return;
+
+  reviewContainer.innerHTML = "";
+
+  if (cart.length === 0) {
+    reviewContainer.innerHTML = `<p class="empty-message">(Your Cart is Empty)</p>`;
+    return;
+  }
+
+  let subtotal = 0;
+
+  cart.forEach(item => {
+    const product = products.find(p => p.id === item.id);
+    if (!product) return;
+
+    subtotal += product.price * item.qty;
+
+    const row = document.createElement("div");
+    row.className = "cart-item";
+
+    row.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <div class="cart-item-details">
+        <p class="cart-item-name">${product.name}</p>
+        <p class="cart-item-price">$${product.price.toFixed(2)}</p>
+        <p>Qty: ${item.qty}</p>
+      </div>
+    `;
+
+    reviewContainer.appendChild(row);
+  });
+
+  const tax = subtotal * 0.05;
+
+  const zip = localStorage.getItem("lastZip") || "";
+  const shipping = calculateShipping(zip);
+
+  const method = localStorage.getItem("lastShippingMethod") || "standard";
+  const expedited = method === "expedited" ? 15.0 : 0;
+
+  const total = subtotal + tax + shipping + expedited;
+
+  const itemCount = cart.reduce((sum, item) => sum + item.qty, 0);
+
+  const subLabel = document.getElementById("review-subtotal-label");
+  const taxEl = document.getElementById("review-tax");
+  const shipEl = document.getElementById("review-shipping");
+  const expEl = document.getElementById("review-expedited");
+  const totalEl = document.getElementById("review-total");
+
+  if (subLabel) subLabel.textContent = `Subtotal (${itemCount} items): $${subtotal.toFixed(2)}`;
+  if (taxEl) taxEl.textContent = tax.toFixed(2);
+  if (shipEl) shipEl.textContent = shipping.toFixed(2);
+  if (expEl) expEl.textContent = expedited.toFixed(2);
+  if (totalEl) totalEl.textContent = total.toFixed(2);
+
+  const backBtn = document.getElementById("review-back-btn");
+  const confirmBtn = document.getElementById("review-confirm-btn");
+
+  if (backBtn) {
+    backBtn.onclick = () => window.location.href = "checkout.html";
+  }
+
+  if (confirmBtn) {
+    confirmBtn.onclick = () => {
+      if (cart.length === 0) {
+        alert("Your cart is empty. Cannot confirm order.");
+        return;
+      }
+
+      const total = document.getElementById("review-total")?.textContent;
+      if (!total || total.trim() === "" || total === "0.00") {
+        alert("Order totals are missing. Cannot confirm order.");
+        return;
+      }
+
+      submitOrder();
+    };
+  }
 }
 
 /* ============================================================
@@ -261,18 +318,24 @@ document.addEventListener("DOMContentLoaded", () => {
       if (el) el.value = map[id];
     }
 
+    // Restore shipping method
     const method = data.shippingMethod || "standard";
     const radio = document.querySelector(`input[name='shipping-method'][value='${method}']`);
     if (radio) radio.checked = true;
   }
 
+  /* ---------------------------------------------------------
+     FIX: FORCE DEFAULT SHIPPING METHOD TO APPLY ON FIRST LOAD
+     (prevents shipping from showing $0.00)
+  --------------------------------------------------------- */
   const defaultMethod = document.querySelector("input[name='shipping-method']:checked");
   if (defaultMethod) {
-    defaultMethod.dispatchEvent(new Event("change"));
+    defaultMethod.dispatchEvent(new Event("change")); // triggers renderCart()
   }
 
   renderCart();
 });
+
 
 /* ============================================================
    REVIEW ORDER BUTTON — VALIDATION + SAVE FORM
@@ -284,11 +347,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   reviewBtn.addEventListener("click", () => {
 
+    // CART REQUIRED
     if (cart.length === 0) {
       alert("Your cart is empty. Add items before reviewing your order.");
       return;
     }
 
+    // SHIPPING + BILLING REQUIRED
     const requiredShipping = [
       "bill-address", "bill-city", "bill-state", "bill-zip",
       "ship-address", "ship-city", "ship-state", "ship-zip"
@@ -302,6 +367,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    // PAYMENT REQUIRED
     const name = document.getElementById("card-name").value.trim();
     const number = document.getElementById("card-number").value.trim();
     const exp = document.getElementById("card-exp").value.trim();
@@ -315,6 +381,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // SAVE FORM DATA
     const formData = {
       billAddress: document.getElementById("bill-address").value,
       billCity: document.getElementById("bill-city").value,
@@ -329,6 +396,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     localStorage.setItem("checkoutFormData", JSON.stringify(formData));
 
+    // GO TO REVIEW PAGE
     window.location.href = "review-order.html";
   });
 });
+
